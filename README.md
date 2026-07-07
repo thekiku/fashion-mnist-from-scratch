@@ -4,7 +4,53 @@ A complete implementation of a feedforward neural network built entirely from sc
 
 The purpose of this project is to understand how image classification works internally by implementing every major component of a neural network manually instead of relying on high-level deep learning frameworks such as TensorFlow or PyTorch. Every layer, activation function, loss function, optimizer, and training step has been implemented from first principles using only NumPy.
 
-The implementation follows the concepts presented throughout *Neural Networks from Scratch in Python* by Harrison Kinsley and Daniel Kukieła and applies them to the Fashion-MNIST dataset, demonstrating how a neural network can be trained, evaluated, saved, and used for inference on unseen images.
+The project demonstrates the complete workflow of image classification, from preprocessing Fashion-MNIST images to training, evaluating, saving, loading, and performing inference on previously unseen images.
+
+---
+
+# Architecture
+
+The overall pipeline consists of three main stages:
+
+1. **Image Preprocessing**
+   - Input images are converted to grayscale (if required).
+   - Images are resized to **28 × 28** pixels.
+   - Each image is flattened into a vector of **784 input features** (28 × 28 = 784), where each feature represents a single pixel intensity.
+
+2. **Feedforward Neural Network**
+   - The flattened image is passed through two fully connected hidden layers with **ReLU** activation.
+   - The final output layer contains **10 neurons**, one for each Fashion-MNIST class.
+   - A **Softmax** activation converts the output scores into class probabilities.
+
+3. **Training**
+   - The network is trained using **Categorical Cross-Entropy Loss**.
+   - Parameters are updated using the **Adam optimizer** with learning-rate decay and L2 regularization.
+
+### Overall Pipeline
+
+<img width="6724" height="2524" alt="image" src="https://github.com/user-attachments/assets/d00edbea-095a-4be2-9b9f-54e663e7639f" />
+
+
+The figure above illustrates how an input image is preprocessed into a 784-dimensional feature vector before being passed through the neural network to produce probabilities for each clothing category.
+
+### Model Configuration
+
+<img width="4352" height="2910" alt="image" src="https://github.com/user-attachments/assets/623ce34c-8f48-45a1-9ab1-0121b3ea831e" />
+
+
+The implementation uses the following architecture:
+
+```
+Input Layer      : 784 neurons (28×28 pixels)
+Hidden Layer 1   : 128 neurons + ReLU
+Hidden Layer 2   : 128 neurons + ReLU
+Output Layer     : 10 neurons + Softmax
+Optimizer        : Adam
+Loss Function    : Categorical Cross-Entropy
+Regularization   : L2
+```
+
+The hidden layer sizes are configurable and can be changed easily. For this implementation, **128 neurons** were chosen for both hidden layers as a balance between model capacity and computational efficiency.
 
 ---
 
@@ -37,7 +83,6 @@ The project uses the **Fashion-MNIST** dataset, consisting of grayscale images o
 
 <img width="1186" height="497" alt="image" src="https://github.com/user-attachments/assets/c5732729-cb50-424a-952b-67f5dae2739e" />
 
-
 Classes include:
 
 - T-shirt/Top
@@ -66,7 +111,7 @@ The dataset is included in this repository under the `fashion_mnist_images` dire
 
 ## Project Structure
 
-```
+```text
 fashion-mnist-from-scratch/
 │
 ├── .gitignore
