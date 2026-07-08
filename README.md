@@ -1,4 +1,4 @@
-# Fashion-MNIST Classifier from Scratch using NumPy
+# Fashion-MNIST Classifier 
 
 A complete implementation of a feedforward neural network built entirely from scratch using NumPy for classifying the Fashion-MNIST dataset.
 
