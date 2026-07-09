@@ -34,10 +34,10 @@ model.evaluate(X, y)
 print('The final evaluation of the model on the testing dataset is:')
 model.evaluate(X_val, y_val)
 
-# Save trained model parameters to a file named 'fashion_mnist.parms'
+# Save trained model parameters to a file named fashion_mnist.parms
 model.save_parameters('fashion_mnist.parms')
 
-# Save the entire model (architecture, weights, etc.) to a file named 'fashion_mnist.model'
+# Save the entire model (architecture, weights, etc.) to a file named fashion_mnist.model
 model.save('fashion_mnist.model')
 
 
