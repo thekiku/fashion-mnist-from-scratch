@@ -1,7 +1,5 @@
 from load_data import X, y, X_val, y_val  # Importing training and validation data from load_data module
-print("1")
 from main import *  # Importing everything from main.py 
-print("2")
 
 # Initialize the neural network model
 model = Model()
